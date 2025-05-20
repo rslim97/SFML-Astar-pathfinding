@@ -8,6 +8,9 @@ Visualization of Astar and Djikstra grid-based pathfinding methods using SFML an
 
 ## Djikstra
 Modify method variable in main.cpp to `Path::pathFindingMethod::Djikstra` for Djikstra visualization.
+<p align="center">
+  <img src="gif/Djikstra.gif" width="55%"/>
+</p>
 
 ## Requirements
 

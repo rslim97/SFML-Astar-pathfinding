@@ -21,8 +21,8 @@ float Path::getDistance(const std::pair<int, int>& move) {
     return sqrt(pow(move.first, 2) + pow(move.second, 2));
 }
 
-float Path::Heuristic(const Coordinate& a, const Coordinate& b) {
-    float weight = 1.0;  // use weight > 1.0 for weighted Astar
+float Path::Heuristic(const Coordinate& a, const Coordinate& b, float weight) {
+    // use weight > 1.0 for weighted Astar
     return static_cast<float>(weight * (abs(a.x - b.x) + abs(a.y - b.y)));  // Manhattan distance.
 }
 
@@ -131,7 +131,7 @@ bool Path::AstarFlood(Map& my_map, const Coordinate& start, const Coordinate& en
                         if (my_map.getCell(next_c).m_type != Cell::Type::Start && 
                             my_map.getCell(next_c).m_type != Cell::Type::End)
                             my_map.getCell(next_c).m_type = Cell::Type::Frontier;   
-                        next_c.heuristic = alt + Heuristic(end, next_c);
+                        next_c.heuristic = alt + Heuristic(end, next_c, 1.0);
                         m_pq.push(next_c);
                     }
                 }

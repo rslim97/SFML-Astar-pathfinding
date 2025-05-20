@@ -16,7 +16,7 @@ private:
             return a.heuristic > b.heuristic;
         }
     };
-    float Heuristic(const Coordinate& left, const Coordinate& right);
+    float Heuristic(const Coordinate& left, const Coordinate& right, float weight);
     std::priority_queue<Coordinate, std::vector<Coordinate>, compareCellCoordinates> m_pq;
     // Coordinate m_start, m_end;
     std::vector<std::pair<int, int>> m_moves;
